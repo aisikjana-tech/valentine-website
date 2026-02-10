@@ -164,7 +164,7 @@
         }
 
         #volumeSlider::-webkit-slider-thumb {
-            --webkit-appearance: none;
+            -webkit-appearance: none;
             appearance: none;
             width: 20px;
             height: 20px;
@@ -1234,6 +1234,188 @@
             font-weight: 500;
         }
 
+        /* Love Quiz Page */
+        .quiz-container {
+            max-width: 700px;
+        }
+
+        .quiz-content {
+            margin-top: 30px;
+        }
+
+        .quiz-question {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .quiz-question.active {
+            display: block;
+        }
+
+        .question-number {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--rose);
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .question-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--deep-rose);
+            text-align: center;
+            margin-bottom: 35px;
+            line-height: 1.4;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe5f0 100%);
+            border: 3px solid var(--rose);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: var(--deep-rose);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+            background: linear-gradient(135deg, #ffe5f0 0%, #ffd6e8 100%);
+        }
+
+        .option-letter {
+            width: 45px;
+            height: 45px;
+            background: var(--rose);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover .option-letter {
+            background: var(--deep-rose);
+            transform: scale(1.1);
+        }
+
+        .option-text {
+            font-size: 1.2rem;
+            color: var(--burgundy);
+            font-weight: 600;
+        }
+
+        .quiz-option.selected {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--deep-rose) 100%);
+            border-color: var(--deep-rose);
+            animation: selectPulse 0.5s ease;
+        }
+
+        .quiz-option.selected .option-letter {
+            background: white;
+            color: var(--deep-rose);
+        }
+
+        .quiz-option.selected .option-text {
+            color: white;
+        }
+
+        @keyframes selectPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Quiz Results */
+        .quiz-results {
+            text-align: center;
+            animation: fadeInScale 0.8s ease-in-out;
+        }
+
+        .results-icon {
+            font-size: 6rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .results-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--deep-rose);
+            margin-bottom: 20px;
+        }
+
+        .results-message {
+            font-size: 1.3rem;
+            color: var(--burgundy);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .results-score {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe5f0 100%);
+            border: 3px solid var(--rose);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .score-label {
+            font-size: 1.2rem;
+            color: var(--burgundy);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .score-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--deep-rose);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .score-subtitle {
+            font-size: 1.5rem;
+            color: var(--rose);
+            font-weight: 600;
+        }
+
+        .results-romantic-message {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: var(--burgundy);
+            font-style: italic;
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #ffe5f0 0%, #ffd6e8 100%);
+            border-radius: 20px;
+            border: 2px dashed var(--rose);
+        }
+
         /* Scroll Page */
         .scroll-container {
             display: flex;
@@ -1782,6 +1964,50 @@
             .photo-overlay img {
                 max-height: 60vh;
             }
+
+            .question-text {
+                font-size: 1.6rem;
+            }
+
+            .quiz-option {
+                padding: 15px 20px;
+                gap: 15px;
+            }
+
+            .option-letter {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .option-text {
+                font-size: 1.05rem;
+            }
+
+            .results-title {
+                font-size: 2rem;
+            }
+
+            .results-message {
+                font-size: 1.1rem;
+            }
+
+            .score-value {
+                font-size: 3rem;
+            }
+
+            .score-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .results-romantic-message {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+
+            .results-icon {
+                font-size: 4.5rem;
+            }
         }
     </style>
 </head>
@@ -1792,7 +2018,7 @@
     </audio>
 
     <!-- Music Control Button -->
-    <button class="music-control-btn" id="musicControlBtn" onclick="toggleMusicPanel()">
+    <button class="music-control-btn" id="musicControlBtn" ontouchstart="toggleMusicPanel(event)" onclick="toggleMusicPanel(event)">
         <span id="musicIcon">🎵</span>
     </button>
 
@@ -1800,7 +2026,7 @@
     <div class="volume-panel" id="volumePanel">
         <div class="volume-header">
             <span>🎵 Music Volume</span>
-            <button class="volume-close" onclick="toggleMusicPanel()">×</button>
+            <button class="volume-close" ontouchstart="toggleMusicPanel(event)" onclick="toggleMusicPanel(event)">×</button>
         </div>
         <div class="volume-controls">
             <button class="volume-btn" onclick="changeVolume(-0.1)">−</button>
@@ -1888,6 +2114,9 @@
                 <button class="next-btn" onclick="showShayari()">
                     📜 Shayari specially for you
                 </button>
+                <button class="next-btn" onclick="showLoveQuiz()">
+                    💝 Take our Love Quiz
+                </button>
                 <button class="next-btn" onclick="showDateOptions()">
                     🎁 Plan a surprise date
                 </button>
@@ -1926,7 +2155,7 @@
             <div class="shayari-container">
                 <div class="shayari-card">
                     <div class="shayari-text">
-                        Teri muskaan meri pehchaan ban gayi hai,<br>
+                       Teri muskaan meri pehchaan ban gayi hai,<br>
                         Teri khushi meri jaan ban gayi hai,<br>
                         Kitna pyaar hai tumse yeh kaise bataun,<br>
                         Tera naam hi meri dhadkan ban gayi hai. 💕
@@ -1958,6 +2187,155 @@
                         Kyunki mujhe tumhe khona nahi…<br>
                         Tumhe zindagi bhar rakhna hai.💝
                     </div>
+                </div>
+            </div>
+            
+            <button class="back-btn" onclick="goBack(3)">← Back</button>
+        </div>
+    </div>
+
+    <!-- Page 3.6: Love Quiz Page -->
+    <div class="page" id="page3_6">
+        <div class="next-container quiz-container">
+            <h2 class="next-title">💝 Our Love Quiz 💝</h2>
+            <p class="next-message">Let's see how well we know each other! 💕</p>
+            
+            <div class="quiz-content" id="quizContent">
+                <!-- Question 1 -->
+                <div class="quiz-question active" id="question1">
+                    <div class="question-number">Question 1 of 5</div>
+                    <h3 class="question-text">What's our favorite thing to do together?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(1, 'A')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Watch movies and cuddle</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(1, 'B')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Go on long walks and talk</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(1, 'C')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Just being in each other's presence</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(1, 'D')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">All of the above! 💕</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="quiz-question" id="question2">
+                    <div class="question-number">Question 2 of 5</div>
+                    <h3 class="question-text">What makes our relationship special?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(2, 'A')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">We can be ourselves completely</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(2, 'B')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">We understand each other deeply</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(2, 'C')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">We make each other laugh</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(2, 'D')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Everything about us! ❤️</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="quiz-question" id="question3">
+                    <div class="question-number">Question 3 of 5</div>
+                    <h3 class="question-text">What's your favorite memory of us?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(3, 'A')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Our first kiss 💋</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(3, 'B')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Our first date 🌹</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(3, 'C')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">The day we confessed our feelings</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(3, 'D')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Every moment with you! 💕</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="quiz-question" id="question4">
+                    <div class="question-number">Question 4 of 5</div>
+                    <h3 class="question-text">How do you feel when we're apart?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(4, 'A')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">I miss you every second 🥺</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(4, 'B')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Counting down till I see you again</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(4, 'C')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">Incomplete without you</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(4, 'D')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">All of the above! 💔</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="quiz-question" id="question5">
+                    <div class="question-number">Question 5 of 5</div>
+                    <h3 class="question-text">What do you love most about me?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(5, 'A')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text">Your beautiful smile 😊</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(5, 'B')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text">Your caring heart ❤️</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(5, 'C')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text">How you make me feel special</span>
+                        </button>
+                        <button class="quiz-option" onclick="selectAnswer(5, 'D')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text">Everything about you! 💖</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Results -->
+                <div class="quiz-results" id="quizResults" style="display: none;">
+                    <div class="results-icon">💕</div>
+                    <h3 class="results-title">Quiz Complete!</h3>
+                    <p class="results-message" id="resultsMessage"></p>
+                    <div class="results-score">
+                        <div class="score-label">Your Love Score:</div>
+                        <div class="score-value">100%</div>
+                        <div class="score-subtitle">Perfect Match! 💖</div>
+                    </div>
+                    <p class="results-romantic-message">
+                        No matter what you answered, you're perfect for me! 
+                        Every answer just proves how amazing our love is. 
+                        Thank you for being you. 💕
+                    </p>
                 </div>
             </div>
             
@@ -2188,13 +2566,13 @@
                                 The day you chose me changed my life in ways I never imagined. Your decision to be with me wasn't just a choice — it was a gift that I treasure every single day.
                             </p>
                             <p style="line-height: 2; color: var(--burgundy); font-size: 1.15rem; text-indent: 30px; margin-top: 15px;">
-                                You could have chosen anyone, but you chose me. And in that moment, you made me the luckiest person alive. Every day since then has been filled with more love, joy, and happiness than I ever thought possible. I always dreamed a happy beautiful future with you.
+                                You could have chosen anyone, but you chose me. And in that moment, you made me the luckiest person alive. Every day since then has been filled with more love, joy, and happiness than I ever thought possible.
                             </p>
                             <p style="line-height: 2; color: var(--burgundy); font-size: 1.15rem; text-indent: 30px; margin-top: 15px;">
                                 I want you to know that choosing me was the best decision you could have made, not because I'm perfect, but because I promise to love you with everything I have. I'll be there through every smile, every tear, every dream, and every challenge.
                             </p>
                             <p style="line-height: 2; color: var(--burgundy); font-size: 1.15rem; text-indent: 30px; margin-top: 15px;">
-                                You didn't just choose a partner,but also as a boyfriend, as a husband, as a partner in crime — you chose someone who will spend forever making sure you never regret that choice. You chose someone who sees you as the most precious person in the world. I would never ever leave you , you will always find me in your ups - and - downs.
+                                You didn't just choose a partner — you chose someone who will spend forever making sure you never regret that choice. You chose someone who sees you as the most precious person in the world.
                             </p>
                             <p style="line-height: 2; color: var(--burgundy); font-size: 1.15rem; text-indent: 30px; margin-top: 15px;">
                                 Thank you for choosing me, my love. I'll spend every day proving that you made the right choice of your life. I LOVE YOU SO SO MUCH, my TITLIII....
@@ -2262,7 +2640,7 @@
                     Thank you for choosing me.<br><br>
                     You've made my world so much brighter, happier, and full of love.<br><br>
                     You deserve every bit of happiness this world has to offer.<br>
-                    You deserve every bit of love, care, and joy that life can bring. And you truly are special<br><br>
+                    You deserve all the love, care, and joy that life can bring.<br><br>
                     <strong style="color: var(--deep-rose); font-size: 1.6rem;">Happy Valentine's Day, My Love! 💖</strong>
                 </p>
                 <div class="finale-hearts">
@@ -2353,7 +2731,7 @@
         let musicStarted = false;
 
         // Set initial volume
-        backgroundMusic.volume = 0.5;
+        backgroundMusic.volume = 0.7;
 
         // Start background music on first user interaction (mobile-friendly)
         function initMusic() {
@@ -2375,7 +2753,11 @@
         document.addEventListener('touchstart', initMusic, { once: true });
 
         // Toggle volume panel
-        function toggleMusicPanel() {
+        function toggleMusicPanel(event) {
+            if (event) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
             volumePanel.classList.toggle('show');
         }
 
@@ -2552,6 +2934,12 @@
             document.getElementById('page3_5').classList.add('active');
         }
 
+        function showLoveQuiz() {
+            document.getElementById('page3').classList.remove('active');
+            document.getElementById('page3_6').classList.add('active');
+            resetQuiz();
+        }
+
         function showDateOptions() {
             document.getElementById('page3').classList.remove('active');
             document.getElementById('page4').classList.add('active');
@@ -2699,6 +3087,84 @@
             document.getElementById('page' + pageNum).classList.add('active');
         }
 
+        // Love Quiz Functions
+        let quizAnswers = [];
+        let currentQuestion = 1;
+
+        function resetQuiz() {
+            quizAnswers = [];
+            currentQuestion = 1;
+            
+            // Hide all questions
+            document.querySelectorAll('.quiz-question').forEach(q => {
+                q.classList.remove('active');
+            });
+            
+            // Show first question
+            document.getElementById('question1').classList.add('active');
+            
+            // Hide results
+            document.getElementById('quizResults').style.display = 'none';
+            
+            // Remove selected class from all options
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+        }
+
+        function selectAnswer(questionNum, answer) {
+            // Store answer
+            quizAnswers[questionNum - 1] = answer;
+            
+            // Add selected class to clicked option
+            const currentQuestionDiv = document.getElementById('question' + questionNum);
+            currentQuestionDiv.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            event.target.closest('.quiz-option').classList.add('selected');
+            
+            // Create heart burst effect
+            createHeartBurst(event);
+            
+            // Wait a bit then move to next question
+            setTimeout(() => {
+                if (questionNum < 5) {
+                    // Move to next question
+                    document.getElementById('question' + questionNum).classList.remove('active');
+                    document.getElementById('question' + (questionNum + 1)).classList.add('active');
+                    currentQuestion = questionNum + 1;
+                } else {
+                    // Show results
+                    showQuizResults();
+                }
+            }, 800);
+        }
+
+        function showQuizResults() {
+            // Hide last question
+            document.getElementById('question5').classList.remove('active');
+            
+            // Generate romantic result message
+            const messages = [
+                "Your answers show just how deeply you understand our love! 💕",
+                "Every answer you gave made my heart skip a beat! 💖",
+                "You know our relationship inside and out - that's true love! 💗",
+                "Your responses prove we're meant to be together! 💝",
+                "The way you answered shows how much you care! 💘"
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById('resultsMessage').textContent = randomMessage;
+            
+            // Show results
+            document.getElementById('quizResults').style.display = 'block';
+            
+            // Scroll to results
+            setTimeout(() => {
+                document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+
         // Create heart burst effect on click
         function createHeartBurst(event) {
             const hearts = ['💕', '💖', '💗', '💝', '💘'];
@@ -2782,12 +3248,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
