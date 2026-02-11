@@ -760,6 +760,190 @@
             min-height: 100px;
         }
 
+        /* Memory Timeline */
+        .timeline-container {
+            max-width: 800px;
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            margin: 40px 0;
+            padding: 20px 0;
+        }
+
+        /* Timeline center line */
+        .timeline-wrapper::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--rose), var(--deep-rose));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            animation: fadeInTimeline 0.6s ease-in-out;
+        }
+
+        @keyframes fadeInTimeline {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 55%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 55%;
+            text-align: left;
+        }
+
+        .timeline-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--deep-rose);
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-content {
+            position: relative;
+        }
+
+        /* Timeline dot */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--rose);
+            border: 4px solid white;
+            border-radius: 50%;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.2);
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% {
+                box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(255, 107, 157, 0.4);
+            }
+        }
+
+        .timeline-photo {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-photo {
+            margin-right: 0;
+        }
+
+        .timeline-item:nth-child(even) .timeline-photo {
+            margin-left: 0;
+        }
+
+        .timeline-photo:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+        }
+
+        .timeline-photo img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .timeline-heart {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2rem;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: floatHeart 3s ease-in-out infinite;
+        }
+
+        @keyframes floatHeart {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--deep-rose);
+            margin: 20px 0 10px 0;
+            font-weight: 700;
+        }
+
+        .timeline-description {
+            font-size: 1.2rem;
+            color: var(--burgundy);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Timeline End */
+        .timeline-end {
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .timeline-end-heart {
+            font-size: 4rem;
+            animation: pulse 2s infinite;
+            margin-bottom: 15px;
+        }
+
+        .timeline-end-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-rose);
+            font-weight: 700;
+            font-style: italic;
+        }
+
         .photo-item {
             position: relative;
             border-radius: 15px;
@@ -1754,6 +1938,64 @@
                 gap: 15px;
             }
 
+            /* Mobile Timeline */
+            .timeline-wrapper::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                margin-bottom: 40px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 60px;
+                padding-right: 10px;
+                text-align: left;
+            }
+
+            .timeline-item::before {
+                left: 20px;
+                transform: translateX(0);
+                top: 60px;
+            }
+
+            .timeline-date {
+                font-size: 0.95rem;
+            }
+
+            .timeline-photo {
+                max-width: 100%;
+            }
+
+            .timeline-photo img {
+                height: 250px;
+            }
+
+            .timeline-heart {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+                top: 10px;
+                right: 10px;
+            }
+
+            .timeline-title {
+                font-size: 1.3rem;
+            }
+
+            .timeline-description {
+                font-size: 1.05rem;
+            }
+
+            .timeline-end-heart {
+                font-size: 3rem;
+            }
+
+            .timeline-end-text {
+                font-size: 1.2rem;
+            }
+
             .section-subtitle {
                 font-size: 1.5rem;
             }
@@ -2155,7 +2397,7 @@
             <div class="shayari-container">
                 <div class="shayari-card">
                     <div class="shayari-text">
-                       Teri muskaan meri pehchaan ban gayi hai,<br>
+                        Teri muskaan meri pehchaan ban gayi hai,<br>
                         Teri khushi meri jaan ban gayi hai,<br>
                         Kitna pyaar hai tumse yeh kaise bataun,<br>
                         Tera naam hi meri dhadkan ban gayi hai. 💕
@@ -2252,23 +2494,23 @@
                 <!-- Question 3 -->
                 <div class="quiz-question" id="question3">
                     <div class="question-number">Question 3 of 6</div>
-                    <h3 class="question-text">What's your favorite memory of us?</h3>
+                    <h3 class="question-text">What do you miss most about me?</h3>
                     <div class="quiz-options">
                         <button class="quiz-option" onclick="selectAnswer(3, 'A')">
                             <span class="option-letter">A</span>
-                            <span class="option-text">Our first kiss 💋</span>
+                            <span class="option-text">The warm hugs and kisses 💋</span>
                         </button>
                         <button class="quiz-option" onclick="selectAnswer(3, 'B')">
                             <span class="option-letter">B</span>
-                            <span class="option-text">Our first date 🌹</span>
+                            <span class="option-text">Being able to hold your hand 🤝</span>
                         </button>
                         <button class="quiz-option" onclick="selectAnswer(3, 'C')">
                             <span class="option-letter">C</span>
-                            <span class="option-text">The day I confessed my feelings</span>
+                            <span class="option-text">Seeing your beautiful smile in person 😊</span>
                         </button>
                         <button class="quiz-option" onclick="selectAnswer(3, 'D')">
                             <span class="option-letter">D</span>
-                            <span class="option-text">Every moment with you! 💕</span>
+                            <span class="option-text">Everything about being together! 💕</span>
                         </button>
                     </div>
                 </div>
@@ -2276,23 +2518,23 @@
                 <!-- Question 4 -->
                 <div class="quiz-question" id="question4">
                     <div class="question-number">Question 4 of 6</div>
-                    <h3 class="question-text">What’s the one thing you always tease me about?</h3>
+                    <h3 class="question-text">What's your favorite memory of us?</h3>
                     <div class="quiz-options">
                         <button class="quiz-option" onclick="selectAnswer(4, 'A')">
                             <span class="option-letter">A</span>
-                            <span class="option-text">My habits that only you notice 👀</span>
+                            <span class="option-text">Our first kiss 💋</span>
                         </button>
                         <button class="quiz-option" onclick="selectAnswer(4, 'B')">
                             <span class="option-letter">B</span>
-                            <span class="option-text">My knowledge in biology</span>
+                            <span class="option-text">Our first date 🌹</span>
                         </button>
                         <button class="quiz-option" onclick="selectAnswer(4, 'C')">
                             <span class="option-letter">C</span>
-                            <span class="option-text">Incomplete without you</span>
+                            <span class="option-text">The day I confessed my feelings</span>
                         </button>
                         <button class="quiz-option" onclick="selectAnswer(4, 'D')">
                             <span class="option-letter">D</span>
-                            <span class="option-text">All of the above, and you love it anyway ❤️</span>
+                            <span class="option-text">Every moment with you! 💕</span>
                         </button>
                     </div>
                 </div>
@@ -2308,7 +2550,7 @@
                         </button>
                         <button class="quiz-option" onclick="selectAnswer(5, 'B')">
                             <span class="option-letter">B</span>
-                            <span class="option-text">Your eyes ❤️</span>
+                            <span class="option-text">Your eyes 👁️</span>
                         </button>
                         <button class="quiz-option" onclick="selectAnswer(5, 'C')">
                             <span class="option-letter">C</span>
@@ -2316,28 +2558,29 @@
                         </button>
                         <button class="quiz-option" onclick="selectAnswer(5, 'D')">
                             <span class="option-letter">D</span>
-                            <span class="option-text">Everything about you! 💖</span>
+                            <span class="option-text">Everything about you,head to toe 🤭! 💖</span>
                         </button>
                     </div>
                 </div>
+
                 <!-- Question 6 -->
-                <div class="quiz-question" id="question6">
+                <div class="quiz-question" id="question5">
                     <div class="question-number">Question 6 of 6</div>
-                    <h3 class="question-text">What keeps you going during the distance?</h3>
+                    <h3 class="question-text">What does our long distance prove?</h3>
                     <div class="quiz-options">
-                        <button class="quiz-option" onclick="selectAnswer(6, 'A')">
+                        <button class="quiz-option" onclick="selectAnswer(5, 'A')">
                             <span class="option-letter">A</span>
                             <span class="option-text">Distance can't break true love 💪</span>
                         </button>
-                        <button class="quiz-option" onclick="selectAnswer(6, 'B')">
+                        <button class="quiz-option" onclick="selectAnswer(5, 'B')">
                             <span class="option-letter">B</span>
                             <span class="option-text">We're meant to be together 💑</span>
                         </button>
-                        <button class="quiz-option" onclick="selectAnswer(6, 'C')">
+                        <button class="quiz-option" onclick="selectAnswer(5, 'C')">
                             <span class="option-letter">C</span>
                             <span class="option-text">Our love is worth the wait ⏰</span>
                         </button>
-                        <button class="quiz-option" onclick="selectAnswer(6, 'D')">
+                        <button class="quiz-option" onclick="selectAnswer(5, 'D')">
                             <span class="option-letter">D</span>
                             <span class="option-text">All of the above! We're forever! 💖</span>
                         </button>
@@ -2356,8 +2599,9 @@
                     </div>
                     <p class="results-romantic-message">
                         No matter what you answered, you're perfect for me! 
-                        Every answer just proves how amazing our love is. 
-                        Thank you for being you. 💕
+                        The distance between us only makes our love stronger. 
+                        Every mile, every day apart just proves how much we mean to each other.
+                        Thank you for choosing us, even when it's hard. 💕
                     </p>
                 </div>
             </div>
@@ -2391,10 +2635,10 @@
                         <img src="pic2.jpeg" alt="Our memory 2">
                     </div>
                     <div class="photo-item">
-                        <img src="pic3.jpeg" alt="Our memory 3">
+                        <img src="pic11.jpeg" alt="Our memory 3">
                     </div>
                     <div class="photo-item">
-                        <img src="pic4.jpeg" alt="Our memory 4">
+                        <img src="pic10.jpeg" alt="Our memory 4">
                     </div>
                     <!-- Add more photo-item divs as needed -->
                 </div>
@@ -2420,33 +2664,97 @@
         </div>
     </div>
 
-    <!-- Page 6: Photo Gallery -->
+    <!-- Page 6: Photo Gallery - Memory Timeline -->
     <div class="page" id="page6">
-        <div class="next-container">
-            <h2 class="next-title">📸 Our Special Moments 📸</h2>
-            <p class="next-message">Look at all our beautiful memories together! 💕</p>
+        <div class="next-container timeline-container">
+            <h2 class="next-title">💕 Our Love Story Timeline 💕</h2>
+            <p class="next-message">Every moment with you is a treasure! 💖</p>
 
-            <div class="photo-gallery" id="photoGallery">
-                <!-- Add your photos here by replacing the src attributes -->
-                <div class="photo-item">
-                    <img src="pic5.jpeg" alt="Memory 1">
+            <div class="timeline-wrapper">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">School Farewell</div>
+                    <div class="timeline-content">
+                        <div class="timeline-photo" onclick="enlargePhoto(this.querySelector('img'))">
+                            <img src="pic2.jpeg" alt="Memory 1">
+                            <div class="timeline-heart">💕</div>
+                        </div>
+                        <div class="timeline-title">You Looked Absolutely Stunning in The Saree.</div>
+                        <div class="timeline-description">Gorgeous doesn't even begin to describe you that day💕</div>
+                    </div>
                 </div>
-                <div class="photo-item">
-                    <img src="pic6.jpeg" alt="Memory 2">
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">June 3,2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-photo" onclick="enlargePhoto(this.querySelector('img'))">
+                            <img src="pic8.jpeg" alt="Memory 2">
+                            <div class="timeline-heart">💖</div>
+                        </div>
+                        <div class="timeline-title">Lake Mall & Cafe</div>
+                        <div class="timeline-description">I love You💗 💖</div>
+                    </div>
                 </div>
-                <div class="photo-item">
-                    <img src="pic7.jpeg" alt="Memory 3">
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">June 13, 2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-photo" onclick="enlargePhoto(this.querySelector('img'))">
+                            <img src="pic7.jpeg" alt="Memory 3">
+                            <div class="timeline-heart">💗</div>
+                        </div>
+                        <div class="timeline-title">Hiland Park</div>
+                        <div class="timeline-description">How can I ever forget that day? 🥰</div>
+                    </div>
                 </div>
-                <div class="photo-item">
-                    <img src="pic8.jpeg" alt="Memory 4">
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">October 19, 2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-photo" onclick="enlargePhoto(this.querySelector('img'))">
+                            <img src="pic3.jpeg" alt="Memory 4">
+                            <div class="timeline-heart">💝</div>
+                        </div>
+                        <div class="timeline-title">Our First Date</div>
+                        <div class="timeline-description">How can I ever forget that day?you in that blue dress(🙈) 🥰</div>
+                    </div>
                 </div>
-                <div class="photo-item">
-                    <img src="pic9.jpeg" alt="Memory 5">
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">December 28, 2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-photo" onclick="enlargePhoto(this.querySelector('img'))">
+                            <img src="pic4.jpeg" alt="Memory 5">
+                            <div class="timeline-heart">💘</div>
+                        </div>
+                        <div class="timeline-title">Our Movie Date</div>
+                        <div class="timeline-description">We enjoyed the movie right...IYKYK🙈</div>
+                    </div>
                 </div>
-                <div class="photo-item">
-                    <img src="pic10.jpeg" alt="Memory 6">
+
+                <!-- Timeline Item 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">December 28,2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-photo" onclick="enlargePhoto(this.querySelector('img'))">
+                            <img src="pic1.jpeg" alt="Memory 6">
+                            <div class="timeline-heart">❤️</div>
+                        </div>
+                        <div class="timeline-title">My Favorite Photo</div>
+                        <div class="timeline-description">I love You💗</div>
+                    </div>
                 </div>
-                <!-- Add more photo-item divs as needed -->
+                
+
+                <!-- Timeline End Heart -->
+                <div class="timeline-end">
+                    <div class="timeline-end-heart">💕</div>
+                    <div class="timeline-end-text">Our story continues...</div>
+                </div>
             </div>
             
             <button class="back-btn" onclick="goBack(3)">← Back</button>
@@ -2598,7 +2906,7 @@
                                 You didn't just choose a partner — you chose someone who will spend forever making sure you never regret that choice. You chose someone who sees you as the most precious person in the world.
                             </p>
                             <p style="line-height: 2; color: var(--burgundy); font-size: 1.15rem; text-indent: 30px; margin-top: 15px;">
-                                Thank you for choosing me, my love. I'll spend every day proving that you made the right choice of your life. I LOVE YOU SO SO MUCH, my TITLIII....
+                                Thank you for choosing me, my love. I'll spend every day proving that you made the right choice.
                             </p>
                             <p style="text-align: right; margin-top: 30px; font-style: italic; color: var(--rose); font-size: 1.2rem;">
                                 Forever yours,<br>
@@ -2688,7 +2996,7 @@
                     Your caring and affectionate nature deserves to be celebrated every single day.<br><br>
                     You bring so much joy, warmth, and love into my life, and I'm so grateful for you.<br><br>
                     You deserve every bit of happiness in this world, and I hope this made you smile. 💖<br><br>
-                    Thank you for being the amazing person you are.
+                    Thank you for being the amazing person you are. I LOVE YOU SO SO SO MUCHHH.....
                 </p>
                 <div class="finale-hearts">
                     💕 💖 💗 💝 💘 ❤️ 💕 💖 💗 💝
@@ -2905,7 +3213,8 @@
             'pic7.jpeg': 'In Hiland Park, the jumpsuit you wore was stunning baby. At that time i also didnot confess though 💗',
             'pic8.jpeg': 'After our lunch from Lake Mall, you took me to a cafe, i had butterflies every moment when i was around you 💗',
             'pic9.jpeg': 'Every photo with you is a treasure I hold close to my heart 💗',
-            'pic10.jpeg': 'OMGG this photo is my fav, Ki na lagche re toke, ufff, nazar na lage 💗'
+            'pic10.jpeg': 'OMGG this photo is my fav, Ki na lagche re toke, ufff, nazar na lage 💗',
+            'pic11.jpeg': 'You in that BodyCon(How I resisted myself when I first saw, only I Know) 💗'
         };
 
         function setupPhotoEnlargement() {
@@ -3169,11 +3478,11 @@
             
             // Generate romantic result message
             const messages = [
-                "Your answers show just how deeply you understand our love! 💕",
-                "Every answer you gave made my heart skip a beat! 💖",
-                "You know our relationship inside and out - that's true love! 💗",
-                "Your responses prove we're meant to be together! 💝",
-                "The way you answered shows how much you care! 💘"
+                "Your answers show that distance means nothing when love is this strong! 💕",
+                "Every answer proves our long distance relationship is worth it! 💖",
+                "You understand what it takes to make us work across the miles! 💗",
+                "Your responses show that we're stronger than any distance! 💝",
+                "The way you answered proves our love conquers all distances! 💘"
             ];
             
             const randomMessage = messages[Math.floor(Math.random() * messages.length)];
@@ -3271,6 +3580,7 @@
     </script>
 </body>
 </html>
+
 
 
 
